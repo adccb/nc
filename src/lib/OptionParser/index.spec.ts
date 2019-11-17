@@ -1,12 +1,4 @@
-import { isRange, getRange, choicesFor } from '.'
-import { OptionRange } from './types'
-
-describe('isRange', () => {
-  it("correctly determines which strings do and don't represent ranges", () => {
-    expect(isRange('1..5')).toBe(true)
-    expect(isRange('asdkjfasdfas')).toBe(false)
-  })
-})
+import { getRange, choicesFor, OptionRange } from '.'
 
 describe('getRange', () => {
   const range = '1..4'
