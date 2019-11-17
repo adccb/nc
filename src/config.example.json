@@ -1,0 +1,4 @@
+{
+  "apiKey": "API_KEY_HERE",
+  "options": [["m", "#mood", "1..5"]]
+}
