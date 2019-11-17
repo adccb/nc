@@ -1,0 +1,107 @@
+{
+  "name": "nomie-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc --resolveJsonModule --esModuleInterop",
+    "build:dev": "npm run build -- --watch",
+    "lint": "eslint --ext .ts src/",
+    "lint:watch": "esw -w --ext .ts src/",
+    "start:now": "node build/index.js",
+    "start": "npm run build && npm run start:now"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.8",
+    "acorn": "^6.3.0",
+    "axios": "^0.19.0",
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15",
+    "typescript": "^3.7.2",
+    "yargs": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "^13.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-watch": "^6.0.1",
+    "prettier-eslint": "^9.0.0"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "jest/globals": true
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ],
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ],
+      "no-console": 0,
+      "no-plusplus": 0,
+      "no-await-in-loop": 0
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/index.ts"
+        ],
+        "rules": {
+          "import/prefer-default-export": "off"
+        }
+      }
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "semi": false,
+    "singleQuote": true
+  },
+  "jest": {
+    "watchPathIgnorePatterns": [
+      "<rootDir>/src/"
+    ]
+  }
+}
