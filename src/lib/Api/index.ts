@@ -10,7 +10,18 @@ export const logEntry = axios => (
 ): AxiosPromise<ApiResponse> =>
   axios.post('https://nomieapi.com/log', {
     api_key: apiKey,
-    note: `${tag}(${value}),`
+    note: `${tag}(${value}),`,
+    source: 'nc'
   })
 
+const _logEntries = axios => (data): AxiosPromise<ApiResponse> =>
+  axios.post('https://nomieapi.com/log', {
+    api_key: apiKey,
+    note: data.reduce(
+      (str, datum) => `${str}${datum.tag}(${datum.value}), `,
+      ''
+    )
+  })
+
+export const logEntries = _logEntries(axiosConcrete)
 export default logEntry(axiosConcrete)

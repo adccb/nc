@@ -1,7 +1,7 @@
 import readline from 'readline'
-import { forEach } from 'lodash'
+import { forEach, map } from 'lodash'
 
-import { tagFromFlag, logEntry } from '../lib'
+import { tagFromFlag, logEntries } from '../lib'
 
 export const r = readline.createInterface({
   input: process.stdin,
@@ -27,7 +27,11 @@ export const confirmAndSubmit = async (options): Promise<boolean> => {
 
   const response = await question('\nshould we log this to nomie? Y/n\n')
   if (userAnsweredYes(response)) {
-    forEach(options, (value, option) => logEntry(tagFromFlag(option), value))
+    const toLog = map(options, (value, option) => ({
+      value,
+      tag: tagFromFlag(option)
+    }))
+    logEntries(toLog)
   }
 
   r.close()

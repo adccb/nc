@@ -1,5 +1,5 @@
 import OptionParser, { tagFromFlag } from './OptionParser'
-import logEntry from './Api'
+import logEntry, { logEntries } from './Api'
 import Interviewer from './Interviewer'
 
-export { OptionParser, Interviewer, tagFromFlag, logEntry }
+export { OptionParser, Interviewer, tagFromFlag, logEntry, logEntries }
