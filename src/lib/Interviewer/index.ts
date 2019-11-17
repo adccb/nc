@@ -3,10 +3,9 @@ import { StringDict } from '../../types'
 import { sanitizedOptions } from '../Settings'
 
 export const Interviewer = async (): Promise<boolean> => {
-  console.log('starting interviewer...')
+  console.log('starting interviewer...\n')
 
   const toSubmit: StringDict = {}
-  console.log()
   for (let i = 0; i < sanitizedOptions.length; i++) {
     const { tag, flag, values } = sanitizedOptions[i]
     const res = await question(`(${values}) how is your ${tag}? `)

@@ -14,7 +14,7 @@ export const logEntry = axios => (
     source: 'nc'
   })
 
-const _logEntries = axios => (data): AxiosPromise<ApiResponse> =>
+export const _logEntries = axios => (data): AxiosPromise<ApiResponse> =>
   axios.post('https://nomieapi.com/log', {
     api_key: apiKey,
     note: data.reduce(
