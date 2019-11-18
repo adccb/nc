@@ -4,7 +4,7 @@ this is a WIP CLI app to send data to [nomie](https://nomie.app/).
 
 ## usage
 
-all you need to bring to nomie is your config file. we've included a stub in `/src/config.example.json` you can follow. (you should rename that file to `config.json your config file needs two things.
+all you need to bring to nomie is your config file. we've included a stub in `/src/config.example.json` you can follow. (you should rename that file to `config.json`.) your config file needs two things:
 
 - `apiKey: string`: this can be found in nomie's [api settings](https://open.nomie.app/api) page.
 - `options: (string | boolean)[][]`: an array of arrays. example:
@@ -33,8 +33,8 @@ you'll be given an opportunity to make sure your data is correct. here's a typic
 λ nc -m 1 -e 2 -c
 
 here's what we heard.
-	#mood(1)
-	#energy(2)
+  #mood(1)
+  #energy(2)
   #coffee
 
 should we log this to nomie? Y/n
@@ -53,8 +53,8 @@ how is your #mood? 1
 how is your #energy? 2
 
 here's what we heard.
-	#mood(1)
-	#energy(2)
+  #mood(1)
+  #energy(2)
 
 should we log this to nomie? Y/n
 y
