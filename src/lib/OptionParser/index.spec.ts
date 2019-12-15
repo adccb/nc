@@ -1,4 +1,5 @@
-import { getRange, choicesFor, OptionRange } from '.'
+import { getRange, choicesFor } from '.'
+import { OptionRange } from '../../types'
 
 describe('getRange', () => {
   const range = '1..4'

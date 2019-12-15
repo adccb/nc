@@ -14,6 +14,12 @@ export const isRange = (option: NCOption): option is NCNumeric =>
 export const isOneTap = (opt: NCOption): opt is NCOneTap =>
   typeof opt === 'boolean' && opt === true
 
+export type OptionRange = {
+  type: 'range'
+  start: number
+  end: number
+}
+
 export type NCConfig = {
   apiKey: string
   options: NCOption[]

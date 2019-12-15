@@ -1,16 +1,17 @@
 import * as yargs from 'yargs'
 import { omit } from 'lodash'
 
-import { Dict, StringDict, isRange, isOneTap, RANGE_REGEX } from '../../types'
+import {
+  Dict,
+  StringDict,
+  isRange,
+  isOneTap,
+  RANGE_REGEX,
+  OptionRange
+} from '../../types'
 import { sanitizedOptions } from '../Settings'
 
 type OptionDict = Dict<yargs.Options>
-
-export type OptionRange = {
-  type: 'range'
-  start: number
-  end: number
-}
 
 const reservedOptions: OptionDict = {
   i: {

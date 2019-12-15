@@ -3,7 +3,6 @@ import axiosConcrete, { AxiosPromise } from 'axios'
 
 import { apiKey } from '../../config.json'
 import { ApiResponse } from './types'
-// import { isOneTap } from '../../lib/OptionParser'
 
 const sanitizeValue = (value: string | boolean): string =>
   typeof value === 'boolean' ? '1' : value

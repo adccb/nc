@@ -1,7 +1,7 @@
-import { question, confirmAndSubmit } from '../../util'
-import { isRange } from '../../types'
-import { StringDict } from '../../types'
+import { question, confirmAndSubmit, isInRange } from '../../util'
+import { isRange, StringDict } from '../../types'
 import { sanitizedOptions } from '../Settings'
+import { getRange } from '../OptionParser'
 
 export const Interviewer = async (): Promise<boolean> => {
   console.log('starting interviewer...\n')
@@ -11,7 +11,13 @@ export const Interviewer = async (): Promise<boolean> => {
   const toSubmit: StringDict = {}
   for (let i = 0; i < agenda.length; i++) {
     const { tag, flag, values } = agenda[i]
-    const res = await question(`(${values}) how is your ${tag}? `)
+    const range = getRange(values)
+
+    let res = await question(`(${values}) how is your ${tag}? `)
+    while (!isInRange(range, Number(res))) {
+      res = await question(`(${values}) how is your ${tag}? `)
+    }
+
     toSubmit[flag] = res
   }
 
