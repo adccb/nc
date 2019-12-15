@@ -1,6 +1,18 @@
-# nc
+# ncli
 
 this is a WIP CLI app to send data to [nomie](https://nomie.app/).
+
+you will only need node and npm.
+
+## setup
+
+```bash
+$ cd
+$ git clone https://github.com/mxtetrachord/nc ~/.ncli
+$ cd .ncli
+$ npm i && npm build
+$ echo 'alias ncli="node $HOME/.ncli/build/index.js"'
+```
 
 ## usage
 
@@ -9,7 +21,7 @@ all you need to bring to nomie is your config file. we've included a stub in `/s
 - `apiKey: string`: this can be found in nomie's [api settings](https://open.nomie.app/api) page.
 - `options: (string | boolean)[][]`: an array of arrays. example:
 
-```
+```bash
 [
   // cli flag, nomie tracker name, range of values
   ["m", "#mood", "1..5"],
@@ -21,16 +33,16 @@ all you need to bring to nomie is your config file. we've included a stub in `/s
 
 with the above options, you can call 
 
-```
-$ nc -m 1 -e 8 -c
+```bash
+$ ncli -m 1 -e 8 -c
 ```
 
 which will hydrate into `#mood(1), #energy(8), #coffee(1)`.
 
-you'll be given an opportunity to make sure your data is correct. here's a typical `nc` run:
+you'll be given an opportunity to make sure your data is correct. here's a typical `ncli` run:
 
-```
-λ nc -m 1 -e 2 -c
+```bash
+λ ncli -m 1 -e 2 -c
 
 here's what we heard.
   #mood(1)
@@ -42,10 +54,10 @@ y
 ```
 
 ## interactive mode
-calling  `nc -i`  starts "interactive mode"; we'll step through all your range options one-by-one and ask you for your response. then we'll scoop up all that data, let you review it all, and send it to nomie. (note: we won't ask about one-tap trackers here.) here's an example run in interactive mode:
+calling  `ncli -i`  starts "interactive mode"; we'll step through all your range options one-by-one and ask you for your response. then we'll scoop up all that data, let you review it all, and send it to nomie. (note: we won't ask about one-tap trackers here.) here's an example run in interactive mode:
 
-```
-λ nc -i
+```bash
+λ ncli -i
 
 starting interviewer...
 
