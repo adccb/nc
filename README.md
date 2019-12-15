@@ -11,7 +11,7 @@ $ cd
 $ git clone https://github.com/mxtetrachord/nc ~/.ncli
 $ cd .ncli
 $ npm i && npm build
-$ echo 'alias ncli="node $HOME/.ncli/build/index.js"'
+$ echo 'alias ncli="node $HOME/.ncli/build/index.js"' >> ~/.bash_profile
 ```
 
 ## usage
